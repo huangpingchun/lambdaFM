@@ -7,6 +7,7 @@
 #include <mutex>
 #include <iostream>
 #include <cmath>
+#include <boost/lexical_cast.hpp>
 #include "../Utils/utils.h"
 
 using namespace std;
@@ -44,14 +45,14 @@ public:
         vi.resize(factor_num);
         v_ni.resize(factor_num);
         v_zi.resize(factor_num);
-        wi = stod(modelLineSeg[1]);
-        w_ni = stod(modelLineSeg[2 + factor_num]);
-        w_zi = stod(modelLineSeg[3 + factor_num]);
+        wi = boost::lexical_cast<double>(modelLineSeg[1]);
+        w_ni = boost::lexical_cast<double>(modelLineSeg[2 + factor_num]);
+        w_zi = boost::lexical_cast<double>(modelLineSeg[3 + factor_num]);
         for(int f = 0; f < factor_num; ++f)
         {
-            vi[f] = stod(modelLineSeg[2 + f]);
-            v_ni[f] = stod(modelLineSeg[4 + factor_num + f]);
-            v_zi[f] = stod(modelLineSeg[4 + 2 * factor_num + f]);
+            vi[f] = boost::lexical_cast<double>(modelLineSeg[2 + f]);
+            v_ni[f] = boost::lexical_cast<double>(modelLineSeg[4 + factor_num + f]);
+            v_zi[f] = boost::lexical_cast<double>(modelLineSeg[4 + 2 * factor_num + f]);
         }
     }
 
